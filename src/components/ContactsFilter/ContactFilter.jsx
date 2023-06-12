@@ -1,17 +1,19 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import {Input } from './styled';
+import { Input } from './styled';
+import { useDispatch } from 'react-redux';
+import { filterAction } from 'redux/action';
 
-const ContactFilter = ({ onChange, value }) => (
-  <label>
-    <Input type="text" value={value}  onChange={onChange} />
-  </label>
-);
+function ContactFilter() {
+  const dispatch = useDispatch();
 
-ContactFilter.propTypes = {
-  onChange: PropTypes.func.isRequired,
-  value: PropTypes.string.isRequired
+  const handlerFilterInput = e => {
+    dispatch(filterAction(e.target.value));
+  };
+  return (
+    <label>
+      <Input type="text" onChange={handlerFilterInput} />
+    </label>
+  );
 }
-
 
 export default ContactFilter;

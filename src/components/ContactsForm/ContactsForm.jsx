@@ -1,6 +1,6 @@
 import { Title, Form, Label, Text, Input, Button } from './styled';
 import { useDispatch, useSelector } from 'react-redux';
-import { contactAction } from 'store/action';
+import { contactAction } from 'redux/action';
 
 function ContactsForm() {
   const {contacts} = useSelector(state => state);
