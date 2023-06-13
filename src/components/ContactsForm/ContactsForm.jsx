@@ -1,23 +1,20 @@
+import { useState } from 'react';
 import { Title, Form, Label, Text, Input, Button } from './styled';
 import { useDispatch, useSelector } from 'react-redux';
 import { contactAction } from 'redux/action';
 
 function ContactsForm() {
   const {contacts} = useSelector(state => state);
-  let name = '';
-  let number = '';
+  const [name, setName] = useState(null);
+  const [number, setNumber] = useState(null);
   const dispatch = useDispatch();
 
-  console.log(contacts)
-
   const handlerInputName = e => {
-    console.log(e)
-    name = e.target.value;
+     setName(e.target.value);
   };
 
   const handlerInputNumber = e => {
-    console.log(e)
-    number = e.target.value;
+    setNumber(e.target.value);
   };
 
   const handlerSubmitForm = e => {
