@@ -12,7 +12,7 @@ function ContactsForm() {
   const dispatch = useDispatch();
 
   const handlerInputName = e => {
-     setName(e.target.value);
+    setName(e.target.value);
   };
 
   const handlerInputNumber = e => {

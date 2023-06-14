@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import { Button, Item, Text } from './styled';
 
 const ContactItem = ({ id, name, number, onDelete }) => {
- 
   return (
     <Item>
       <Text>
@@ -22,5 +21,3 @@ ContactItem.propTypes = {
 };
 
 export default ContactItem;
-
-
