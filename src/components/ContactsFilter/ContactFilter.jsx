@@ -1,13 +1,13 @@
 import React from 'react';
 import { Input } from './styled';
 import { useDispatch } from 'react-redux';
-import { filterAction } from 'redux/action';
+import { filtred } from 'redux/contactSlice';
 
 function ContactFilter() {
   const dispatch = useDispatch();
 
   const handlerFilterInput = e => {
-    dispatch(filterAction(e.target.value));
+    dispatch(filtred(e.target.value));
   };
   return (
     <label>

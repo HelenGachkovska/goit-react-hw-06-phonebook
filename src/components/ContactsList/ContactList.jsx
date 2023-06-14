@@ -2,20 +2,24 @@ import React from 'react';
 import ContactItem from '../ContactItem/index';
 import { List } from './styled';
 import { useDispatch, useSelector } from 'react-redux';
-import { deletedAction } from 'redux/action';
+import { stateSelectorContacts, stateSelectorFilters } from 'redux/selector';
+import { deleted } from 'redux/contactSlice';
 
 function ContactList() {
-  const { contacts, filter } = useSelector(state => state);
+  const contacts = useSelector(stateSelectorContacts);
+  const filter = useSelector(stateSelectorFilters);
+
   const dispatch = useDispatch();
-  
-  const filteredArray = contacts.filter((el) =>
-    el.name.toLowerCase().includes(filter.toLowerCase())
+
+  const filteredArray = contacts.filter(el =>
+    el.name.toLowerCase().trim().includes(filter.toLowerCase())
   );
 
-  const handlerDeleteItem = (id) => {
-    console.log(id)
-    dispatch(deletedAction(id));
-  }
+  const handlerDeleteItem = id => {
+    dispatch(deleted(id));
+  };
+
+  const store = useSelector(store => store);
 
   return (
     <List>
@@ -32,6 +36,6 @@ function ContactList() {
       })}
     </List>
   );
-};
+}
 
 export default ContactList;
