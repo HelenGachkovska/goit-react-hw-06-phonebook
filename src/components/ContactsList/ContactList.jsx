@@ -18,9 +18,6 @@ function ContactList() {
   const handlerDeleteItem = id => {
     dispatch(deleted(id));
   };
-
-  const store = useSelector(store => store);
-
   return (
     <List>
       {filteredArray.map(el => {
