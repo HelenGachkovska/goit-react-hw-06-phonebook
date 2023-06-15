@@ -1,9 +1,10 @@
 import React from 'react';
 import { Input } from './styled';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { filtred } from 'redux/contactSlice';
 
 function ContactFilter() {
+  const filter = useSelector(stateSelectorFilters);
   const dispatch = useDispatch();
 
   const handlerFilterInput = e => {
@@ -11,7 +12,7 @@ function ContactFilter() {
   };
   return (
     <label>
-      <Input type="text" onChange={handlerFilterInput} />
+      <Input type="text" value={filter} onChange={handlerFilterInput} />
     </label>
   );
 }
